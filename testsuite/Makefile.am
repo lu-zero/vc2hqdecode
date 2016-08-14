@@ -10,7 +10,10 @@ AM_CXXFLAGS = $(VC2HQDECODE_CFLAGS) \
 
 AM_LDFLAGS = $(VC2HQDECODE_LDFLAGS)
 
-LDADD = $(VC2HQDECODE_LIBS)
+LDADD = $(top_srcdir)/vc2inversetransform_sse4_2/libvc2invtransform-sse4-2.la \
+	$(top_srcdir)/vc2inversetransform_c/libvc2invtransform-c.la \
+	$(top_srcdir)/vc2hqdecode/libvc2hqdecode_0.1_la-quantmatrix.lo \
+	$(top_srcdir)/vc2hqdecode/libvc2hqdecode_0.1_la-logger.lo
 
 vc2decodertest_SOURCES = \
 	tests.cpp \
