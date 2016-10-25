@@ -1009,7 +1009,7 @@ uint64_t VC2Decoder::SliceInput(char *_idata, int ilength, JobData **jobs) {
 
 					idata += lastlength;
 					if (idata > _idata + ilength) {
-						writelog(LOG_ERROR, "%s:%d:  Coder Overrun: %d > %d\n", __FILE__, __LINE__, (int)(idata - _idata), ilength);
+						writelog(LOG_ERROR, "%s:%d:  Coder Overrun: %d > %d: slice %d x %d\n", __FILE__, __LINE__, (int)(idata - _idata), ilength, job->slice_start_x, job->slice_start_y);
 						throw VC2DECODER_CODEROVERRUN;
 					}
 
