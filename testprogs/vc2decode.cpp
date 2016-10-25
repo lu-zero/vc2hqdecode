@@ -352,14 +352,12 @@ int main (int argc, char *argv[]) {
     /*If no pictures were decoded bail */
     if (picture == 0) {
       fprintf(stderr, "No pictures in sequence!\n");
-      err = 1;
-      break;
     }
 
     /* Otherwise update the record of how many decoded frames have been recorded */
     int num_frames_decoded_from_this_sequence = (fmt.interlaced)?(picture/2):(picture);
-    if (num_frames_decoded_from_this_sequence > num_frames_decoded_from_sequence)
-      num_frames_decoded_from_sequence = num_frames_decoded_from_this_sequence;
+
+    num_frames_decoded_from_sequence += num_frames_decoded_from_this_sequence;
 
     /* And update the record of time taken to decode */
     time_taken += end - start;
